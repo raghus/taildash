@@ -1,0 +1,117 @@
+body {
+    font-family: 'Heebo', sans-serif; /* Changed to Heebo font */
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+#game-area {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#computer-word {
+    font-size: 24px;
+    font-weight: 900; /* Set font weight to Black (900) */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+#score-display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#user-input {
+    width: 60%;  /* Reduce width from 100% to 60% */
+    max-width: 200px;  /* Set a maximum width */
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    display: block;  /* Change to block to allow margin auto */
+    margin-left: auto;  /* Center horizontally */
+    margin-right: auto;  /* Center horizontally */
+}
+
+#submit-btn {
+    display: block;
+    width: 60%;  /* Match input width */
+    max-width: 200px;  /* Match input max-width */
+    padding: 10px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto;  /* Center horizontally */
+    margin-right: auto;  /* Center horizontally */
+}
+
+#message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#message.error {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+#message.success {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+#game-history {
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px; /* Add some padding for better spacing */
+    border-radius: 4px; /* Rounded corners */
+    text-align: center; /* Center align text */
+}
+
+.history-item span {
+    flex: 1; /* Allow spans to take equal space */
+    text-align: center; /* Center align text within each span */
+}
+
+.history-item.player {
+    background-color: #d1e7dd; /* Light green for Player */
+}
+
+.history-item.computer {
+    background-color: #f8d7da; /* Light red for Computer */
+}
