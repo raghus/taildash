@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <div id="game-area">
+            <div id="build-info"></div> <!-- New div for build info -->
             <h1>That Four Letter Word Game</h1> <!-- Updated title -->
             <div id="computer-word"></div>
             <div id="score-display">
@@ -23,6 +24,22 @@
             <div id="game-history"></div>
         </div>
     </div>
+
+    <!-- Modal for game rules -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <h2>Game Rules</h2>
+            <p>1. The computer picks a random 4-letter word.</p>
+            <p>2. You must guess a valid 4-letter word that differs by exactly one letter. No repetitions!</p>
+            <p>3. The computer does the same.</p>
+            <p>4. Each word is scored - Scrabble style - and a running tally is kept.</p>
+            <p>5. The game ends when either you are ahead by more than 5 points or the computer is ahead by more than 10 points.</p>
+            <p>6. Have fun!</p>
+            <button id="play-button">Let's Play</button>
+        </div>
+    </div>
+
     <script src="words.js"></script>
     <script src="script.js"></script>
 </body>

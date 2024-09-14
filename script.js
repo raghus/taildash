@@ -192,4 +192,23 @@ userInputElement.addEventListener('input', function() {
     clearMessage(); // Clear error message when user starts typing
 });
 
+// Function to show the modal
+function showModal() {
+    const modal = document.getElementById('rules-modal');
+    modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('rules-modal');
+    modal.style.display = 'none';
+}
+
+// Event listeners for modal
+document.getElementById('close-modal').addEventListener('click', closeModal);
+document.getElementById('play-button').addEventListener('click', closeModal);
+
+// Show the modal when the page loads
+window.onload = showModal;
+
 initializeGame();
