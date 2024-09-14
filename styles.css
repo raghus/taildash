@@ -81,7 +81,7 @@ h1 {
     padding: 10px;
     border-radius: 4px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal; /* Change to normal weight */
 }
 
 #message.error {
