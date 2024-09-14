@@ -192,3 +192,16 @@ h1 {
 #play-button:hover {
     background-color: #2980b9;
 }
+
+#give-up-link {
+    display: block; /* Make it a block element */
+    text-align: center; /* Center align the link */
+    margin-top: 10px; /* Add some margin above */
+    color: red; /* Change link color to red */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the link bold */
+}
+
+#give-up-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}

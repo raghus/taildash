@@ -152,6 +152,7 @@ function handleUserInput() {
     if (playerScore - computerScore > 5) {
         showMessage(`Game over! You win as you are ahead by ${playerScore - computerScore} points!`, 'success');
         submitButton.disabled = true;
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         userInputElement.focus(); // Move focus back to input field
         return;
     }
@@ -160,6 +161,7 @@ function handleUserInput() {
     if (computerScore - playerScore > 10) {
         showMessage('Game over! Computer wins as it is ahead by 10 points!', 'success');
         submitButton.disabled = true;
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         userInputElement.focus(); // Move focus back to input field
         return;
     }
@@ -168,6 +170,7 @@ function handleUserInput() {
     if (Math.abs(playerScore - computerScore) > 10) {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         submitButton.disabled = true;
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         userInputElement.focus(); // Move focus back to input field
         return;
     }
@@ -212,3 +215,23 @@ document.getElementById('play-button').addEventListener('click', closeModal);
 window.onload = showModal;
 
 initializeGame();
+
+// Function to handle the "Give up?" action
+function handleGiveUp() {
+    let validWords = words.filter(word => 
+        !playedWords.has(word) && differsByOneLetter(word, lastPlayedWord
+    ));
+
+    if (validWords.length > 0) {
+        const randomWord = validWords[Math.floor(Math.random() * validWords.length)];
+        showMessage(`You lose. You could have guessed: ${randomWord}`, 'error');
+    } else {
+        showMessage('I couldn\'t find a valid word either. Let\'s call it a draw.', 'error');
+    }
+}
+
+// Event listener for the "Give up?" link
+document.getElementById('give-up-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    handleGiveUp(); // Call the function to handle giving up
+});
