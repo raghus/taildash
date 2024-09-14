@@ -27,11 +27,11 @@ h1 {
 }
 
 #computer-word {
-    font-size: 24px;
-    font-weight: 900; /* Set font weight to Black (900) for the computer's guess */
-    text-align: center;
-    margin-bottom: 20px;
-    color: #3498db;
+  font-size: 60px;
+  font-weight: 900; /* Set font weight to Black (900) for the computer's guess */
+  text-align: center;
+  margin-bottom: 20px;
+  color: #191970;
 }
 
 #score-display {
