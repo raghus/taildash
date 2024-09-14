@@ -151,37 +151,60 @@ function handleUserInput() {
     // Check if the player's score exceeds the computer's score by 5 points
     if (playerScore - computerScore > 5) {
         showMessage(`Game over! You win as you are ahead by ${playerScore - computerScore} points!`, 'success');
-        submitButton.disabled = true;
-        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        userInputElement.focus(); // Move focus back to input field
+        disableGameControls(); // Disable input and button
         return;
     }
     
     // Check if the computer's score exceeds the player's score by 10 points
     if (computerScore - playerScore > 10) {
         showMessage('Game over! Computer wins as it is ahead by 10 points!', 'success');
-        submitButton.disabled = true;
-        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        userInputElement.focus(); // Move focus back to input field
+        disableGameControls(); // Disable input and button
         return;
     }
     
     // Check if the score difference exceeds 10 points
     if (Math.abs(playerScore - computerScore) > 10) {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
-        submitButton.disabled = true;
-        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        userInputElement.focus(); // Move focus back to input field
+        disableGameControls(); // Disable input and button
         return;
     }
     
     if (!computerTurn()) {
-        submitButton.disabled = true;
+        disableGameControls(); // Disable input and button
     }
     
     userInputElement.value = '';
     userInputElement.focus(); // Move focus back to input field to show keyboard
 }
+
+// Function to disable input and submit button
+function disableGameControls() {
+    userInputElement.disabled = true; // Disable the input field
+    submitButton.disabled = true; // Disable the submit button
+}
+
+// Function to handle the "Give up?" action
+function handleGiveUp() {
+    let validWords = words.filter(word => 
+        !playedWords.has(word) && differsByOneLetter(word, lastPlayedWord
+    ));
+
+    if (validWords.length > 0) {
+        const randomWord = validWords[Math.floor(Math.random() * validWords.length)];
+        showMessage(`You lose. You could have guessed: ${randomWord}`, 'error');
+    } else {
+        showMessage('I couldn\'t find a valid word either. Let\'s call it a draw.', 'error');
+    }
+    
+    disableGameControls(); // Disable input and button after giving up
+    document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
+}
+
+// Event listener for the "Give up?" link
+document.getElementById('give-up-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    handleGiveUp(); // Call the function to handle giving up
+});
 
 submitButton.addEventListener('click', handleUserInput);
 userInputElement.addEventListener('keypress', (e) => {
@@ -215,23 +238,3 @@ document.getElementById('play-button').addEventListener('click', closeModal);
 window.onload = showModal;
 
 initializeGame();
-
-// Function to handle the "Give up?" action
-function handleGiveUp() {
-    let validWords = words.filter(word => 
-        !playedWords.has(word) && differsByOneLetter(word, lastPlayedWord
-    ));
-
-    if (validWords.length > 0) {
-        const randomWord = validWords[Math.floor(Math.random() * validWords.length)];
-        showMessage(`You lose. You could have guessed: ${randomWord}`, 'error');
-    } else {
-        showMessage('I couldn\'t find a valid word either. Let\'s call it a draw.', 'error');
-    }
-}
-
-// Event listener for the "Give up?" link
-document.getElementById('give-up-link').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default link behavior
-    handleGiveUp(); // Call the function to handle giving up
-});
