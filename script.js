@@ -150,6 +150,7 @@ function handleUserInput() {
     if (playerScore - computerScore > 5) {
         showMessage(`Game over! You win as you are ahead by ${playerScore - computerScore} points!`, 'success');
         submitButton.disabled = true;
+        userInputElement.focus(); // Move focus back to input field
         return;
     }
     
@@ -157,6 +158,7 @@ function handleUserInput() {
     if (computerScore - playerScore > 10) {
         showMessage('Game over! Computer wins as it is ahead by 10 points!', 'success');
         submitButton.disabled = true;
+        userInputElement.focus(); // Move focus back to input field
         return;
     }
     
@@ -164,6 +166,7 @@ function handleUserInput() {
     if (Math.abs(playerScore - computerScore) > 10) {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         submitButton.disabled = true;
+        userInputElement.focus(); // Move focus back to input field
         return;
     }
     
@@ -172,6 +175,7 @@ function handleUserInput() {
     }
     
     userInputElement.value = '';
+    userInputElement.focus(); // Move focus back to input field
 }
 
 submitButton.addEventListener('click', handleUserInput);
