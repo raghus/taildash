@@ -54,7 +54,14 @@ function updateDisplay() {
     computerWordElement.textContent = computerWord;
     playerScoreElement.textContent = playerScore;
     computerScoreElement.textContent = computerScore;
-    scoreDifferenceElement.textContent = Math.abs(playerScore - computerScore);
+
+    // Calculate the difference and determine if the computer is ahead
+    const ahead = computerScore - playerScore;
+    if (ahead > 0) {
+        scoreDifferenceElement.textContent = `Computer is currently ahead by ${ahead}`; // Display the ahead message
+    } else {
+        scoreDifferenceElement.textContent = 'Player is currently ahead'; // Message for when the player is ahead
+    }
 }
 
 function isValidWord(word) {
@@ -110,7 +117,7 @@ function computerTurn() {
     );
     
     if (validWords.length === 0) {
-        showMessage('Computer cannot find a valid word. Game over!', 'success');
+        showMessage('Computer cannot find a valid word. You win!', 'success');
         return false;
     }
     
@@ -141,7 +148,14 @@ function handleUserInput() {
     
     // Check if the player's score exceeds the computer's score by 5 points
     if (playerScore - computerScore > 5) {
-        showMessage('Game over! You win!', 'success');
+        showMessage(`Game over! You win! The Player is currently ahead by ${playerScore - computerScore} points.`, 'success');
+        submitButton.disabled = true;
+        return;
+    }
+    
+    // Check if the computer's score exceeds the player's score by 10 points
+    if (computerScore - playerScore > 10) {
+        showMessage('Game over! Computer wins!', 'success');
         submitButton.disabled = true;
         return;
     }

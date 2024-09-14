@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Game</title>
+    <title>That Four Letter Word Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;900&display=swap" rel="stylesheet"> <!-- Updated font -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Word Game</h1>
         <div id="game-area">
+            <h1>That Four Letter Word Game</h1> <!-- Updated title -->
             <div id="computer-word"></div>
             <div id="score-display">
                 <span>Player: <span id="player-score">0</span></span>
                 <span>Computer: <span id="computer-score">0</span></span>
-                <span>Difference: <span id="score-difference">0</span></span>
+                <span><span id="score-difference">0</span></span>
             </div>
-            <input type="text" id="user-input" placeholder="Enter your word" maxlength="4">
+            <input type="text" id="user-input" placeholder="Enter your word with exactly one letter changed" maxlength="4"> <!-- Updated placeholder -->
             <button id="submit-btn">Submit</button>
             <div id="message"></div>
             <div id="game-history"></div>

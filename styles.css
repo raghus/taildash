@@ -47,8 +47,8 @@ h1 {
 }
 
 #user-input {
-    width: 80%;  /* Increase width for better mobile view */
-    max-width: 300px;  /* Set a maximum width */
+    width: 95%;  /* Increase width for better visibility */
+    max-width: 450px;  /* Set a maximum width to accommodate the placeholder */
     padding: 10px;
     font-size: 16px;
     border: 2px solid #3498db;
