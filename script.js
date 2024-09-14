@@ -148,14 +148,14 @@ function handleUserInput() {
     
     // Check if the player's score exceeds the computer's score by 5 points
     if (playerScore - computerScore > 5) {
-        showMessage(`Game over! You win! The Player is currently ahead by ${playerScore - computerScore} points.`, 'success');
+        showMessage(`Game over! You win as you are ahead by ${playerScore - computerScore} points!`, 'success');
         submitButton.disabled = true;
         return;
     }
     
     // Check if the computer's score exceeds the player's score by 10 points
     if (computerScore - playerScore > 10) {
-        showMessage('Game over! Computer wins!', 'success');
+        showMessage('Game over! Computer wins as it is ahead by 10 points!', 'success');
         submitButton.disabled = true;
         return;
     }
