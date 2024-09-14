@@ -128,6 +128,8 @@ function computerTurn() {
     addToHistory(computerWord, score, false);
     lastPlayedWord = computerWord;
     updateDisplay();
+    
+    userInputElement.focus(); // Move focus back to input field to show keyboard
     return true;
 }
 
@@ -175,7 +177,7 @@ function handleUserInput() {
     }
     
     userInputElement.value = '';
-    userInputElement.focus(); // Move focus back to input field
+    userInputElement.focus(); // Move focus back to input field to show keyboard
 }
 
 submitButton.addEventListener('click', handleUserInput);
