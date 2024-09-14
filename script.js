@@ -139,6 +139,14 @@ function handleUserInput() {
     lastPlayedWord = userWord;
     updateDisplay();
     
+    // Check if the player's score exceeds the computer's score by 5 points
+    if (playerScore - computerScore > 5) {
+        showMessage('Game over! You win!', 'success');
+        submitButton.disabled = true;
+        return;
+    }
+    
+    // Check if the score difference exceeds 10 points
     if (Math.abs(playerScore - computerScore) > 10) {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         submitButton.disabled = true;

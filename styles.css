@@ -16,6 +16,7 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
+    font-size: 1.8em; /* Adjusted font size for better mobile view */
 }
 
 #game-area {
@@ -27,7 +28,7 @@ h1 {
 
 #computer-word {
     font-size: 24px;
-    font-weight: 900; /* Set font weight to Black (900) */
+    font-weight: 900; /* Set font weight to Black (900) for the computer's guess */
     text-align: center;
     margin-bottom: 20px;
     color: #3498db;
@@ -35,14 +36,19 @@ h1 {
 
 #score-display {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center align items */
     margin-bottom: 20px;
-    font-weight: bold;
+    font-weight: normal; /* Normal weight for score display */
+}
+
+#score-display span {
+    margin: 5px 0; /* Add some spacing between score items */
 }
 
 #user-input {
-    width: 60%;  /* Reduce width from 100% to 60% */
-    max-width: 200px;  /* Set a maximum width */
+    width: 80%;  /* Increase width for better mobile view */
+    max-width: 300px;  /* Set a maximum width */
     padding: 10px;
     font-size: 16px;
     border: 2px solid #3498db;
@@ -56,8 +62,8 @@ h1 {
 
 #submit-btn {
     display: block;
-    width: 60%;  /* Match input width */
-    max-width: 200px;  /* Match input max-width */
+    width: 80%;  /* Match input width */
+    max-width: 300px;  /* Match input max-width */
     padding: 10px;
     background-color: #3498db;
     color: #ffffff;
@@ -109,9 +115,28 @@ h1 {
 }
 
 .history-item.player {
-    background-color: #d1e7dd; /* Light green for Player */
+    background-color: #add8e6; /* Pale blue for Player */
 }
 
 .history-item.computer {
-    background-color: #f8d7da; /* Light red for Computer */
+    background-color: #d3d3d3; /* Pale gray for Computer */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em; /* Smaller font size for mobile */
+    }
+
+    #computer-word {
+        font-size: 20px; /* Adjust font size for mobile */
+    }
+
+    #user-input, #submit-btn {
+        width: 90%; /* Increase width for better mobile view */
+    }
+
+    #score-display {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
 }
