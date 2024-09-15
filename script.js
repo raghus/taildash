@@ -59,8 +59,10 @@ function updateDisplay() {
     const ahead = computerScore - playerScore;
     if (ahead > 0) {
         scoreDifferenceElement.textContent = `Computer is currently ahead by ${ahead}`; // Display the ahead message
+    } else if (ahead < 0) {
+        scoreDifferenceElement.textContent = `Player is currently ahead by ${ahead}`;; // Message for when the player is ahead
     } else {
-        scoreDifferenceElement.textContent = 'Player is currently ahead'; // Message for when the player is ahead
+        scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the player is ahead
     }
 }
 
@@ -152,6 +154,7 @@ function handleUserInput() {
     if (playerScore - computerScore > 5) {
         showMessage(`Game over! You win as you are ahead by ${playerScore - computerScore} points!`, 'success');
         disableGameControls(); // Disable input and button
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return;
     }
     
@@ -159,6 +162,7 @@ function handleUserInput() {
     if (computerScore - playerScore > 10) {
         showMessage('Game over! Computer wins as it is ahead by 10 points!', 'success');
         disableGameControls(); // Disable input and button
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return;
     }
     
@@ -166,6 +170,7 @@ function handleUserInput() {
     if (Math.abs(playerScore - computerScore) > 10) {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         disableGameControls(); // Disable input and button
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return;
     }
     
