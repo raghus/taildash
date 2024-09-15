@@ -60,7 +60,7 @@ function updateDisplay() {
     if (ahead > 0) {
         scoreDifferenceElement.textContent = `Computer is currently ahead by ${ahead}`; // Display the ahead message
     } else if (ahead < 0) {
-        scoreDifferenceElement.textContent = `Player is currently ahead by ${ahead}`;; // Message for when the player is ahead
+        scoreDifferenceElement.textContent = `Player is currently ahead by ${Math.abs(ahead)}`;; // Message for when the player is ahead
     } else {
         scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the player is ahead
     }
@@ -120,6 +120,7 @@ function computerTurn() {
     
     if (validWords.length === 0) {
         showMessage('Computer cannot find a valid word. You win!', 'success');
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return false;
     }
     

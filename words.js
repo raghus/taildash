@@ -2132,6 +2132,7 @@ const words = [
   'WADE',
   'WADI',
   'WAGE',
+  'WAGS',
   'WAIL',
   'WAIS',
   'WAIT',
