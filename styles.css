@@ -187,10 +187,13 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'Oswald', sans-serif; /* Changed to Oswald font */
+
 }
 
 #play-button:hover {
-    background-color: #2980b9;
+    background-color: #416512;
+    color: white;
 }
 
 #give-up-link {
