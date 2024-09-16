@@ -30,8 +30,8 @@ const userInputElement = document.getElementById('user-input');
 const submitButton = document.getElementById('submit-btn');
 const messageElement = document.getElementById('message');
 const gameHistoryElement = document.getElementById('game-history');
-const playerScoreElement = document.getElementById('player-score');
-const computerScoreElement = document.getElementById('computer-score');
+const playerScoreElement = document.getElementById('player-score'); // Update to correct ID
+const computerScoreElement = document.getElementById('computer-score'); // Update to correct ID
 const scoreDifferenceElement = document.getElementById('score-difference');
 
 function initializeGame() {
@@ -58,8 +58,8 @@ function calculateWordScore(word) {
 
 function updateDisplay() {
     computerWordElement.textContent = computerWord;
-    playerScoreElement.textContent = playerScore;
-    computerScoreElement.textContent = computerScore;
+    playerScoreElement.textContent = playerScore; // Update only the score value
+    computerScoreElement.textContent = computerScore; // Update only the score value
 
     // Calculate the difference and determine if the computer is ahead
     const scoreDifference = computerScore - playerScore; // Calculate score difference
@@ -70,6 +70,17 @@ function updateDisplay() {
     } else {
         scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the scores are tied
     }
+
+    // Highlight the score displays with pale yellow briefly
+    const highlightColor = 'palegoldenrod'; // Pale yellow color
+    document.getElementById('computer-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
+    document.getElementById('player-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
+
+    // Reset background colors after a short delay
+    setTimeout(() => {
+        document.getElementById('computer-score-display').style.backgroundColor = ''; // Reset to default
+        document.getElementById('player-score-display').style.backgroundColor = ''; // Reset to default
+    }, 500); // Reset after 0.5 seconds
 
     // Reset color (if needed)
     scoreDifferenceElement.style.color = ''; // Reset to default color
@@ -139,7 +150,6 @@ function computerTurn() {
         return `${word} (${score})`; // Format each word with its score
     });
     const concatenatedString = wordScoreStrings.join(', '); // Join the strings with a comma
-    // console.log(concatenatedString); // Log the concatenated string (commented out)
 
     // Choose the word with the highest score
     const bestWord = selectedWords.reduce((best, current) => {
@@ -153,6 +163,17 @@ function computerTurn() {
     addToHistory(computerWord, score, false);
     lastPlayedWord = computerWord;
     updateDisplay();
+
+    // Highlight the score displays with pale yellow briefly
+    const highlightColor = 'GreenYellow'; // Pale yellow color
+    document.getElementById('computer-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
+    document.getElementById('player-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
+
+    // Reset background colors after a short delay
+    setTimeout(() => {
+        document.getElementById('computer-score-display').style.backgroundColor = ''; // Reset to default
+        document.getElementById('player-score-display').style.backgroundColor = ''; // Reset to default
+    }, 1500); // Reset after 1 second
 
     userInputElement.focus(); // Move focus back to input field to show keyboard
     return true;
