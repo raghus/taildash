@@ -10,13 +10,14 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 5px; /* Changed padding to 5px */
 }
 
 h1 {
     text-align: center;
     color: #2c3e50;
-    font-size: 1.8em; /* Adjusted font size for better mobile view */
+    font-size: 2.5em; /* Adjust the size as needed */
+    margin-top: 1px; /* Changed margin to 1px */
 }
 
 #game-area {

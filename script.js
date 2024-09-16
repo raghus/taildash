@@ -123,6 +123,14 @@ function addToHistory(word, score, isPlayer) {
         <span>${score}</span>
     `;
     gameHistoryElement.prepend(historyItem);
+
+    // Highlight the last played word
+    setTimeout(() => {
+        historyItem.style.backgroundColor = 'lightyellow'; // Highlight color
+        setTimeout(() => {
+            historyItem.style.backgroundColor = ''; // Reset to default
+        }, 500); // Reset after 0.5 seconds
+    }, 0); // Execute immediately after adding to history
 }
 
 function computerTurn() {

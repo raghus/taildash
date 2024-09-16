@@ -809,6 +809,7 @@ const words = [
   'GULL',
   'GULP',
   'GUMS',
+  'GUNK',
   'GUNS',
   'GURU',
   'GUSH',
