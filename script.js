@@ -1,3 +1,5 @@
+const MAX_RANDOM_WORDS = 3; // Set the maximum number of random words
+
 // Scrabble letter points
 const letterPoints = {
     'A': 1, 'B': 3, 'C': 3, 'D': 2, 'E': 1, 'F': 4, 'G': 2, 'H': 4, 'I': 1, 'J': 8,
@@ -116,21 +118,42 @@ function computerTurn() {
     let validWords = words.filter(word => 
         !playedWords.has(word) && differsByOneLetter(word, lastPlayedWord)
     );
-    
+
     if (validWords.length === 0) {
         showMessage('Computer cannot find a valid word. You win!', 'success');
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return false;
     }
-    
-    computerWord = validWords[Math.floor(Math.random() * validWords.length)];
+
+    // Select up to MAX_RANDOM_WORDS from the valid words
+    const selectedWords = [];
+    for (let i = 0; i < Math.min(MAX_RANDOM_WORDS, validWords.length); i++) {
+        const randomIndex = Math.floor(Math.random() * validWords.length);
+        selectedWords.push(validWords[randomIndex]);
+        validWords.splice(randomIndex, 1); // Remove the selected word to avoid duplicates
+    }
+
+    // Concatenate the selected words and their scores into a single string
+    const wordScoreStrings = selectedWords.map(word => {
+        const score = calculateWordScore(word);
+        return `${word} (${score})`; // Format each word with its score
+    });
+    const concatenatedString = wordScoreStrings.join(', '); // Join the strings with a comma
+    console.log(concatenatedString); // Log the concatenated string
+
+    // Choose the word with the highest score
+    const bestWord = selectedWords.reduce((best, current) => {
+        return calculateWordScore(current) > calculateWordScore(best) ? current : best;
+    });
+
+    computerWord = bestWord; // Set the computer's word to the best word
     const score = calculateWordScore(computerWord);
     computerScore += score;
     playedWords.add(computerWord);
     addToHistory(computerWord, score, false);
     lastPlayedWord = computerWord;
     updateDisplay();
-    
+
     userInputElement.focus(); // Move focus back to input field to show keyboard
     return true;
 }
