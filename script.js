@@ -40,7 +40,7 @@ function initializeGame() {
     playedWords.add(computerWord);
     addToHistory(computerWord, score, false);
     lastPlayedWord = computerWord;
-    updateDisplay();
+    updateDisplay(); // Ensure this is called to update the display
 }
 
 function getRandomWord() {
@@ -56,22 +56,18 @@ function updateDisplay() {
     playerScoreElement.textContent = playerScore;
     computerScoreElement.textContent = computerScore;
 
-    // Create a new element for the score difference message
-    const scoreDifferenceMessage = document.createElement('div');
-    
     // Calculate the difference and determine if the computer is ahead
-    const ahead = computerScore - playerScore;
-    if (ahead > 0) {
-        scoreDifferenceMessage.textContent = `Computer is currently ahead by ${ahead}`; // Display the ahead message
-    } else if (ahead < 0) {
-        scoreDifferenceMessage.textContent = `Player is currently ahead by ${Math.abs(ahead)}`; // Message for when the player is ahead
+    const scoreDifference = computerScore - playerScore; // Calculate score difference
+    if (scoreDifference > 0) {
+        scoreDifferenceElement.textContent = `Computer is currently ahead by ${scoreDifference}`; // Display the ahead message
+    } else if (scoreDifference < 0) {
+        scoreDifferenceElement.textContent = `Player is currently ahead by ${Math.abs(scoreDifference)}`; // Message for when the player is ahead
     } else {
-        scoreDifferenceMessage.textContent = 'Scores are TIED!'; // Message for when the scores are tied
+        scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the scores are tied
     }
 
-    // Append the score difference message to the score display
-    scoreDifferenceElement.innerHTML = ''; // Clear previous content
-    scoreDifferenceElement.appendChild(scoreDifferenceMessage); // Add the new message
+    // Reset color (if needed)
+    scoreDifferenceElement.style.color = ''; // Reset to default color
 }
 
 function isValidWord(word) {
@@ -194,6 +190,9 @@ function handleUserInput() {
 function disableGameControls() {
     userInputElement.disabled = true; // Disable the input field
     submitButton.disabled = true; // Disable the submit button
+    userInputElement.style.display = 'none'; // Hide the input field
+    submitButton.style.display = 'none'; // Hide the submit button
+    scoreDifferenceElement.style.display = 'none'; // Hide the score difference element
 }
 
 // Function to handle the "Give up?" action
