@@ -41,6 +41,9 @@ function initializeGame() {
     addToHistory(computerWord, score, false);
     lastPlayedWord = computerWord;
     updateDisplay(); // Ensure this is called to update the display
+
+    // Ensure the score difference element is visible
+    scoreDifferenceElement.style.display = 'flex'; // Show the score difference element
 }
 
 function getRandomWord() {
@@ -90,10 +93,7 @@ function showMessage(text, type) {
     messageElement.innerHTML = text; // Use innerHTML to allow HTML content
     messageElement.className = type;
 
-    // Check if the game is over and add the "Play again?" link
-    if (type === 'success' || type === 'error') {
-        messageElement.innerHTML += ' <a href="/" id="play-again-link">Play again?</a>'; // Add the link
-    }
+    // Removed the check for success or error types
 }
 
 function clearMessage() {
@@ -193,7 +193,7 @@ function disableGameControls() {
     userInputElement.style.display = 'none'; // Hide the input field
     submitButton.style.display = 'none'; // Hide the submit button
     scoreDifferenceElement.style.display = 'none'; // Hide the score difference element
-    document.getElementById('play-again-message').style.display = 'block'; // Show the play again message
+    document.getElementById('play-again-button').style.display = 'inline-block'; // Show the play again button
 }
 
 // Function to handle the "Give up?" action
@@ -251,3 +251,33 @@ document.getElementById('play-button').addEventListener('click', closeModal);
 window.onload = showModal;
 
 initializeGame();
+
+// Add this at the end of your script.js file
+document.getElementById('play-again-button').addEventListener('click', function() {
+    // Reset scores and game state
+    playerScore = 0;
+    computerScore = 0;
+    playedWords.clear(); // Clear the set of played words
+    lastPlayedWord = '';
+    computerWord = '';
+    
+    // Clear the message and history
+    clearMessage();
+    gameHistoryElement.innerHTML = ''; // Clear the game history
+
+    // Unhide and enable the input field and submit button
+    userInputElement.style.display = 'block'; // Show the input field
+    userInputElement.disabled = false; // Enable the input field
+    userInputElement.value = ''; // Clear the input field
+    submitButton.style.display = 'block'; // Show the submit button
+    submitButton.disabled = false; // Enable the submit button
+
+    // Hide the play again button
+    document.getElementById('play-again-button').style.display = 'none'; // Hide the play again button
+
+    // Show the give up link
+    document.getElementById('give-up-link').style.display = 'block'; // Show the Give up link
+
+    // Reinitialize the game
+    initializeGame();
+});

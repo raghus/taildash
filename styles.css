@@ -199,8 +199,7 @@ h1 {
 }
 
 #play-button:hover {
-    background-color: #416512;
-    color: white;
+    background-color: #2E8B57; /* Change hover color to the new color */
 }
 
 #give-up-link {
@@ -243,4 +242,23 @@ h1 {
     background-color: #add8e6; /* Same color as the player guesses in history */
     padding: 4px 8px; /* Similar padding to the computer score display */
     border-radius: 4px; /* Slightly rounded corners */
+}
+
+#play-again-button {
+    display: none; /* Initially hidden */
+    background-color: #3498db; /* Same background color as submit button */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 10px 20px; /* Same padding as submit button */
+    border-radius: 4px; /* Same border radius */
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Oswald', sans-serif; /* Ensure the same font is used */
+    transition: background-color 0.3s ease;
+    margin: 10px auto; /* Center the button */
+    display: inline-block; /* Change to inline-block to fit content width */
+}
+
+#play-again-button:hover {
+    background-color: #2E8B57; /* Change hover color to the new color */
 }
