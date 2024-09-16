@@ -262,3 +262,7 @@ h1 {
 #play-again-button:hover {
     background-color: #2E8B57; /* Change hover color to the new color */
 }
+
+.modal-content h2 {
+    color: #3498db; /* Set the color to match the submit button */
+}
