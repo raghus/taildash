@@ -158,7 +158,7 @@ function handleUserInput() {
         showMessage(`Game over! You win as you are ahead by ${scoreDifference} points!`, 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        return;
+        return; // Exit the function to prevent further actions
     }
     
     // Check if the computer's score exceeds the player's score by 10 points
@@ -166,7 +166,7 @@ function handleUserInput() {
         showMessage('Game over! Computer wins as it is ahead by 10 points!', 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        return;
+        return; // Exit the function to prevent further actions
     }
     
     // Check if the score difference exceeds 10 points
@@ -174,7 +174,7 @@ function handleUserInput() {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        return;
+        return; // Exit the function to prevent further actions
     }
     
     // Now call computerTurn only after checking the score difference
@@ -193,6 +193,7 @@ function disableGameControls() {
     userInputElement.style.display = 'none'; // Hide the input field
     submitButton.style.display = 'none'; // Hide the submit button
     scoreDifferenceElement.style.display = 'none'; // Hide the score difference element
+    document.getElementById('play-again-message').style.display = 'block'; // Show the play again message
 }
 
 // Function to handle the "Give up?" action
