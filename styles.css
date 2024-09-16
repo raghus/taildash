@@ -35,15 +35,15 @@ h1 {
 }
 
 #score-display {
-    display: flex;
-    flex-direction: column; /* Stack items vertically on small screens */
-    align-items: center; /* Center align items */
-    margin-bottom: 20px;
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: center; /* Center align the items */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 20px; /* Add some margin below */
     font-weight: normal; /* Normal weight for score display */
 }
 
 #score-display span {
-    margin: 5px 0; /* Add some spacing between score items */
+    margin: 0 10px; /* Add a small gap between the score items */
 }
 
 #user-input {
@@ -54,6 +54,7 @@ h1 {
     border: 2px solid #3498db;
     border-radius: 4px;
     margin-bottom: 10px;
+    margin-top: 10px; /* Add margin-top of 10px */
     text-transform: uppercase;
     display: block;  /* Change to block to allow margin auto */
     margin-left: auto;  /* Center horizontally */
@@ -207,4 +208,33 @@ h1 {
 
 #give-up-link:hover {
     text-decoration: underline; /* Underline on hover */
+}
+
+#computer-score-display, #player-score-display {
+    margin-right: 10px; /* Add some space between the two score displays */
+}
+
+#score-difference {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: center; /* Center align the items */
+    align-items: center; /* Center align items vertically */
+    margin-top: 10px; /* Add some space above the score difference message */
+    margin-top: 20px; /* Add a margin to create a gap from the input field */
+    font-weight: bold; /* Make the text bold */
+}
+
+#score-difference span {
+    margin: 0 10px; /* Add a small gap between the two scores */
+}
+
+#computer-score-display {
+    background-color: #d3d3d3; /* Same color as the computer guesses in history */
+    padding: 4px 8px; /* Padding of 2x (adjust as needed) */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+#player-score-display {
+    background-color: #add8e6; /* Same color as the player guesses in history */
+    padding: 4px 8px; /* Similar padding to the computer score display */
+    border-radius: 4px; /* Slightly rounded corners */
 }

@@ -33,6 +33,7 @@ const computerScoreElement = document.getElementById('computer-score');
 const scoreDifferenceElement = document.getElementById('score-difference');
 
 function initializeGame() {
+    clearMessage(); // Clear any previous messages
     computerWord = getRandomWord();
     const score = calculateWordScore(computerWord);
     computerScore += score;
@@ -55,15 +56,22 @@ function updateDisplay() {
     playerScoreElement.textContent = playerScore;
     computerScoreElement.textContent = computerScore;
 
+    // Create a new element for the score difference message
+    const scoreDifferenceMessage = document.createElement('div');
+    
     // Calculate the difference and determine if the computer is ahead
     const ahead = computerScore - playerScore;
     if (ahead > 0) {
-        scoreDifferenceElement.textContent = `Computer is currently ahead by ${ahead}`; // Display the ahead message
+        scoreDifferenceMessage.textContent = `Computer is currently ahead by ${ahead}`; // Display the ahead message
     } else if (ahead < 0) {
-        scoreDifferenceElement.textContent = `Player is currently ahead by ${Math.abs(ahead)}`;; // Message for when the player is ahead
+        scoreDifferenceMessage.textContent = `Player is currently ahead by ${Math.abs(ahead)}`; // Message for when the player is ahead
     } else {
-        scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the player is ahead
+        scoreDifferenceMessage.textContent = 'Scores are TIED!'; // Message for when the scores are tied
     }
+
+    // Append the score difference message to the score display
+    scoreDifferenceElement.innerHTML = ''; // Clear previous content
+    scoreDifferenceElement.appendChild(scoreDifferenceMessage); // Add the new message
 }
 
 function isValidWord(word) {
@@ -82,19 +90,14 @@ function isValidWord(word) {
     return true;
 }
 
-function differsByOneLetter(word1, word2) {
-    if (word1.length !== word2.length) return false;
-    let differences = 0;
-    for (let i = 0; i < word1.length; i++) {
-        if (word1[i] !== word2[i]) differences++;
-        if (differences > 1) return false;
-    }
-    return differences === 1;
-}
-
 function showMessage(text, type) {
-    messageElement.textContent = text;
+    messageElement.innerHTML = text; // Use innerHTML to allow HTML content
     messageElement.className = type;
+
+    // Check if the game is over and add the "Play again?" link
+    if (type === 'success' || type === 'error') {
+        messageElement.innerHTML += ' <a href="/" id="play-again-link">Play again?</a>'; // Add the link
+    }
 }
 
 function clearMessage() {
@@ -151,9 +154,12 @@ function handleUserInput() {
     lastPlayedWord = userWord;
     updateDisplay();
     
+    // Calculate the score difference after the player's input
+    const scoreDifference = playerScore - computerScore;
+
     // Check if the player's score exceeds the computer's score by 5 points
-    if (playerScore - computerScore > 5) {
-        showMessage(`Game over! You win as you are ahead by ${playerScore - computerScore} points!`, 'success');
+    if (scoreDifference > 5) {
+        showMessage(`Game over! You win as you are ahead by ${scoreDifference} points!`, 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return;
@@ -168,13 +174,14 @@ function handleUserInput() {
     }
     
     // Check if the score difference exceeds 10 points
-    if (Math.abs(playerScore - computerScore) > 10) {
+    if (Math.abs(scoreDifference) > 10) {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return;
     }
     
+    // Now call computerTurn only after checking the score difference
     if (!computerTurn()) {
         disableGameControls(); // Disable input and button
     }
