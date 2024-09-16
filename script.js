@@ -139,7 +139,7 @@ function computerTurn() {
         return `${word} (${score})`; // Format each word with its score
     });
     const concatenatedString = wordScoreStrings.join(', '); // Join the strings with a comma
-    console.log(concatenatedString); // Log the concatenated string
+    // console.log(concatenatedString); // Log the concatenated string (commented out)
 
     // Choose the word with the highest score
     const bestWord = selectedWords.reduce((best, current) => {
@@ -218,17 +218,29 @@ function disableGameControls() {
     submitButton.style.display = 'none'; // Hide the submit button
     scoreDifferenceElement.style.display = 'none'; // Hide the score difference element
     document.getElementById('play-again-button').style.display = 'inline-block'; // Show the play again button
+
+    // Show the give up link immediately
+    document.getElementById('give-up-link').style.display = 'block'; // Show the Give up link
 }
 
 // Function to handle the "Give up?" action
 function handleGiveUp() {
     let validWords = words.filter(word => 
-        !playedWords.has(word) && differsByOneLetter(word, lastPlayedWord
-    ));
+        !playedWords.has(word) && differsByOneLetter(word, lastPlayedWord)
+    );
 
     if (validWords.length > 0) {
-        const randomWord = validWords[Math.floor(Math.random() * validWords.length)];
-        showMessage(`You lose. You could have guessed: ${randomWord}`, 'error');
+        // Select up to 5 random valid words
+        const selectedWords = [];
+        for (let i = 0; i < Math.min(5, validWords.length); i++) {
+            const randomIndex = Math.floor(Math.random() * validWords.length);
+            selectedWords.push(validWords[randomIndex]);
+            validWords.splice(randomIndex, 1); // Remove the selected word to avoid duplicates
+        }
+
+        // Create the message with selected words
+        const guessedWordsMessage = selectedWords.join(' or ');
+        showMessage(`You lose. You could have guessed: ${guessedWordsMessage}`, 'error');
     } else {
         showMessage('I couldn\'t find a valid word either. Let\'s call it a draw.', 'error');
     }
