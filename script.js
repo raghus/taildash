@@ -205,21 +205,21 @@ function handleUserInput() {
     // Calculate the score difference after the player's input
     const scoreDifference = playerScore - computerScore;
 
-    // Check if the player's score exceeds the computer's score by 5 points
-    if (scoreDifference > 5) {
+    // Check if the player's score exceeds the computer's score by 5 or more points
+    if (scoreDifference >= 5) {
         showMessage(`Game over! You win as you are ahead by ${scoreDifference} points!`, 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return; // Exit the function to prevent further actions
     }
     
-    // Check if the computer's score exceeds the player's score by 10 points
-    if (computerScore - playerScore > 10) {
-        const scoreDifference = computerScore - playerScore; // Calculate the actual score difference
+    // Check if the computer's score exceeds the player's score by 10 or more points
+    if (computerScore - playerScore >= 10) {
+        const scoreDifference = computerScore - playerScore;
         showMessage(`Game over! Computer wins as it is ahead by ${scoreDifference} points!`, 'success');
-        disableGameControls(); // Disable input and button
-        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
-        return; // Exit the function to prevent further actions
+        disableGameControls();
+        document.getElementById('give-up-link').style.display = 'none';
+        return;
     }
     
     // Check if the score difference exceeds 10 points
