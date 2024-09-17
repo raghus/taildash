@@ -42,16 +42,17 @@ h1 {
 }
 
 #score-display {
-    display: flex; /* Use flexbox to align items in a row */
-    justify-content: center; /* Center align the items */
-    align-items: center; /* Center align items vertically */
-    margin-bottom: 20px; /* Add some margin below */
-    font-weight: normal; /* Normal weight for score display */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 #score-display span {
-    margin: 0 10px; /* Add a small gap between the score items */
-    /* Removed animation and transition properties */
+    margin: 0 5px; /* Reduce the gap between score items */
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Removed keyframes for scoreChange */
@@ -155,6 +156,11 @@ h1 {
 
     #score-display {
         flex-direction: column; /* Stack items vertically on small screens */
+        font-size: 0.8em; /* Further reduce font size on small screens */
+    }
+
+    #computer-score-display, #player-score-display {
+        padding: 2px 4px; /* Further reduce padding on small screens */
     }
 }
 
@@ -226,8 +232,9 @@ h1 {
 }
 
 #computer-score-display, #player-score-display {
-    margin-right: 10px; /* Add some space between the two score displays */
-    transition: background-color 0.5s ease; /* Smooth transition for background color */
+    margin-right: 5px; /* Reduce space between score displays */
+    padding: 4px 6px; /* Slightly reduce padding */
+    font-size: 0.9em; /* Slightly reduce font size */
 }
 
 #score-difference {
