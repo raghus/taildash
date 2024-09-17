@@ -1345,6 +1345,7 @@ const words = [
   'MUCH',
   'MUCK',
   'MUDS',
+  'MUFF',
   'MUGS',
   'MUIR',
   'MULE',

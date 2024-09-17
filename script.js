@@ -66,7 +66,7 @@ function updateDisplay() {
     if (scoreDifference > 0) {
         scoreDifferenceElement.textContent = `Computer is currently ahead by ${scoreDifference}`; // Display the ahead message
     } else if (scoreDifference < 0) {
-        scoreDifferenceElement.textContent = `Player is currently ahead by ${Math.abs(scoreDifference)}`; // Message for when the player is ahead
+        scoreDifferenceElement.textContent = `You are currently ahead by ${Math.abs(scoreDifference)}`; // Message for when the player is ahead
     } else {
         scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the scores are tied
     }
