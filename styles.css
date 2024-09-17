@@ -15,7 +15,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #2c3e50;
+    color: #3498db; /* Changed from #2c3e50 to #3498db to match h2 color */
     font-size: 2.5em; /* Adjust the size as needed */
     margin-top: 1px; /* Changed margin to 1px */
 }
