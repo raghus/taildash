@@ -118,7 +118,7 @@ function addToHistory(word, score, isPlayer) {
     const historyItem = document.createElement('div');
     historyItem.className = 'history-item ' + (isPlayer ? 'player' : 'computer'); // Add class based on player or computer
     historyItem.innerHTML = `
-        <span>${isPlayer ? 'Player' : 'Computer'}</span>
+        <span>${isPlayer ? 'You' : 'Computer'}</span>
         <span>${word}</span>
         <span>${score}</span>
     `;
