@@ -71,10 +71,10 @@ function updateDisplay() {
         scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the scores are tied
     }
 
-    // Highlight the score displays with pale yellow briefly
-    const highlightColor = 'palegoldenrod'; // Pale yellow color
-    document.getElementById('computer-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
-    document.getElementById('player-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
+    // Highlight the score displays with light yellow briefly
+    const highlightColor = 'lightyellow'; // Changed from 'palegoldenrod' to 'lightyellow'
+    document.getElementById('computer-score-display').style.backgroundColor = highlightColor; // Change to light yellow
+    document.getElementById('player-score-display').style.backgroundColor = highlightColor; // Change to light yellow
 
     // Reset background colors after a short delay
     setTimeout(() => {
@@ -188,7 +188,7 @@ function computerTurn() {
         updateDisplay();
 
         // Highlight the score displays
-        const highlightColor = 'GreenYellow';
+        const highlightColor = 'lightyellow'; // Changed from 'GreenYellow' to 'lightyellow'
         document.getElementById('computer-score-display').style.backgroundColor = highlightColor;
         document.getElementById('player-score-display').style.backgroundColor = highlightColor;
 
