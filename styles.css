@@ -48,11 +48,16 @@ h1 {
     margin-bottom: 20px;
     font-weight: normal;
     flex-wrap: nowrap; /* Prevent wrapping */
+    padding: 5px; /* Keep the padding for spacing */
+    border-radius: 4px; /* Keep the rounded corners */
+    min-width: 0; /* Allow flex items to shrink below their minimum content size */
 }
 
 #score-display span {
-    margin: 0 5px; /* Reduce the gap between score items */
+    margin: 0 3px; /* Further reduce the gap between score items */
     white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
 /* Removed keyframes for scoreChange */
@@ -155,13 +160,21 @@ h1 {
     }
 
     #score-display {
-        flex-direction: column; /* Stack items vertically on small screens */
-        font-size: 0.8em; /* Further reduce font size on small screens */
+        font-size: 0.8em; /* Reduce font size on small screens */
+        flex-direction: row; /* Keep items in a row */
+        justify-content: space-between; /* Distribute space between items */
     }
 
     #computer-score-display, #player-score-display {
-        padding: 2px 4px; /* Further reduce padding on small screens */
+        padding: 2px 4px; /* Keep reduced padding on small screens */
     }
+
+    /* Remove or comment out this rule if it exists */
+    /*
+    #score-display {
+        flex-direction: column;
+    }
+    */
 }
 
 /* Modal styles */
@@ -232,9 +245,11 @@ h1 {
 }
 
 #computer-score-display, #player-score-display {
-    margin-right: 5px; /* Reduce space between score displays */
-    padding: 4px 6px; /* Slightly reduce padding */
+    margin-right: 3px; /* Further reduce space between score displays */
+    padding: 2px 4px; /* Further reduce padding */
     font-size: 0.9em; /* Slightly reduce font size */
+    flex: 1; /* Allow flex items to grow and shrink */
+    min-width: 0; /* Allow flex items to shrink below their minimum content size */
 }
 
 #score-difference {
