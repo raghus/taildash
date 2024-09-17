@@ -164,26 +164,44 @@ function computerTurn() {
         return calculateWordScore(current) > calculateWordScore(best) ? current : best;
     });
 
-    computerWord = bestWord; // Set the computer's word to the best word
-    const score = calculateWordScore(computerWord);
-    computerScore += score;
-    playedWords.add(computerWord);
-    addToHistory(computerWord, score, false);
-    lastPlayedWord = computerWord;
-    updateDisplay();
+    // Fade out the current word
+    computerWordElement.classList.add('fade-out');
 
-    // Highlight the score displays with pale yellow briefly
-    const highlightColor = 'GreenYellow'; // Pale yellow color
-    document.getElementById('computer-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
-    document.getElementById('player-score-display').style.backgroundColor = highlightColor; // Change to pale yellow
-
-    // Reset background colors after a short delay
+    // Wait for the fade-out, then update the word and fade it in
     setTimeout(() => {
-        document.getElementById('computer-score-display').style.backgroundColor = ''; // Reset to default
-        document.getElementById('player-score-display').style.backgroundColor = ''; // Reset to default
-    }, 1500); // Reset after 1 second
+        computerWord = bestWord; // Set the computer's word to the best word
+        const score = calculateWordScore(computerWord);
+        computerScore += score;
+        playedWords.add(computerWord);
+        addToHistory(computerWord, score, false);
+        lastPlayedWord = computerWord;
 
-    userInputElement.focus(); // Move focus back to input field to show keyboard
+        // Update the word and trigger reflow
+        computerWordElement.textContent = computerWord;
+        computerWordElement.offsetHeight; // Force reflow
+
+        // Fade in the new word
+        computerWordElement.classList.remove('fade-out');
+        computerWordElement.classList.add('fade-in');
+
+        // Update the rest of the display
+        updateDisplay();
+
+        // Highlight the score displays
+        const highlightColor = 'GreenYellow';
+        document.getElementById('computer-score-display').style.backgroundColor = highlightColor;
+        document.getElementById('player-score-display').style.backgroundColor = highlightColor;
+
+        // Reset background colors after a delay
+        setTimeout(() => {
+            document.getElementById('computer-score-display').style.backgroundColor = '';
+            document.getElementById('player-score-display').style.backgroundColor = '';
+            computerWordElement.classList.remove('fade-in'); // Remove the fade-in class
+        }, 1500); // Changed from 2000 to 1500
+
+        userInputElement.focus();
+    }, 500); // Changed from 1000 to 500 to match the new CSS transition duration
+
     return true;
 }
 

@@ -38,6 +38,7 @@ h1 {
     text-align: center; /* Center align the text */
     margin-bottom: 20px;
     display: inline-block; /* Change to inline-block to fit content width */
+    transition: opacity 0.5s ease-in-out; /* Changed back from 1s to 0.5s */
 }
 
 #score-display {
@@ -275,4 +276,12 @@ h1 {
 
 .modal-content h2 {
     color: #3498db; /* Set the color to match the submit button */
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
 }
