@@ -160,7 +160,7 @@ h1 {
     }
 
     #score-display {
-        font-size: 0.8em; /* Reduce font size on small screens */
+        font-size: 1em; /* Reduce font size on small screens */
         flex-direction: row; /* Keep items in a row */
         justify-content: space-between; /* Distribute space between items */
     }
