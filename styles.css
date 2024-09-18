@@ -112,7 +112,7 @@ h1 {
     border-radius: 4px;
     text-align: center;
     font-weight: normal; /* Change to normal weight */
-    font-size: 20px; /* Increased font size to 20px */
+    font-size: 18px; /* Reduced font size to 18px */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
 }
 
@@ -164,7 +164,7 @@ h1 {
     }
 
     #computer-word {
-        font-size: 20px; /* Adjust font size for mobile */
+        font-size: 30px; /* Adjust font size for mobile */
     }
 
     #user-input, #submit-btn {
