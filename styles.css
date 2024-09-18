@@ -127,9 +127,9 @@ h1 {
 }
 
 #game-history {
-    margin-top: 5px; /* Already changed from 20px to 5px */
+    margin-top: 2px; /* Changed from 5px to 2px */
     border-top: 1px solid #e0e0e0;
-    padding-top: 5px; /* Changed from 20px to 5px */
+    padding-top: 2px; /* Changed from 5px to 2px */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
 }
 
@@ -246,7 +246,7 @@ h1 {
 #give-up-link {
     display: block; /* Make it a block element */
     text-align: center; /* Center align the link */
-    margin-top: 10px; /* Add some margin above */
+    margin-top: 2px; /* Reduced margin-top to 2px */
     color: red; /* Change link color to red */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make the link bold */
@@ -260,7 +260,6 @@ h1 {
 #computer-score-display, #player-score-display {
     margin-right: 3px; /* Further reduce space between score displays */
     padding: 2px 4px; /* Further reduce padding */
-    font-size: 0.9em; /* Slightly reduce font size */
     flex: 1; /* Allow flex items to grow and shrink */
     min-width: 0; /* Allow flex items to shrink below their minimum content size */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
