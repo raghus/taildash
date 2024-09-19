@@ -1044,6 +1044,7 @@ const words = [
   'KILL',
   'KILN',
   'KILO',
+  'KILT',
   'KIND',
   'KING',
   'KINK',
