@@ -234,7 +234,7 @@ function handleUserInput() {
     // Check if the computer's score exceeds the player's score by 10 or more points
     if (computerScore - playerScore >= 10) {
         const scoreDifference = computerScore - playerScore;
-        showMessage(`Game over! Computer wins as it is ahead by ${scoreDifference} points!`, 'success');
+        showMessage(`Game over! Computer wins as it is ahead by ${scoreDifference} points!`, 'error'); // Changed 'success' to 'error'
         disableGameControls();
         document.getElementById('give-up-link').style.display = 'none';
         return;
