@@ -312,6 +312,12 @@ userInputElement.addEventListener('keypress', (e) => {
 userInputElement.addEventListener('input', function() {
     this.value = this.value.toUpperCase();
     clearMessage(); // Clear error message when user starts typing
+
+    // Check if the user has entered four letters
+    if (this.value.length === 4) {
+        const score = calculateWordScore(this.value);
+        console.log(`Score for ${this.value}: ${score}`);
+    }
 });
 
 // Function to show the modal
