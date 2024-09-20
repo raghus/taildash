@@ -7,7 +7,7 @@ const letterPoints = {
     'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10
 };
 
-const profane = ['FUCK', 'CUNT', 'DICK']; // Array containing profane words
+const profane = ['FUCK', 'CUNT', 'DICK', 'SHIT']; // Array containing profane words
 
 let computerWord = '';
 let isHistoryVisible = true;
