@@ -78,7 +78,7 @@ h1 {
     max-width: 450px;  /* Set a maximum width to accommodate the placeholder */
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #3498db;
+    border: 1px solid #3498db; /* Change border to 1px */
     border-radius: 4px;
     margin-bottom: 10px;
     margin-top: 10px; /* Add margin-top of 10px */
