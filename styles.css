@@ -245,8 +245,8 @@ h1 {
 
 #give-up-link {
     display: block; /* Make it a block element */
-    text-align: center; /* Center align the link */
-    margin-top: 2px; /* Reduced margin-top to 2px */
+    text-align: right; /* Right align the link */
+    margin-top: 2px; /* Changed back to 2px */
     color: red; /* Change link color to red */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make the link bold */
