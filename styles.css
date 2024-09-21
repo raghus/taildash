@@ -135,6 +135,10 @@ h1 {
     text-align: center;
 }
 
+.history-item span:last-child {
+    white-space: nowrap; /* Prevent wrapping of the score breakdown */
+}
+
 .history-item.player {
     background-color: #add8e6; /* Pale blue for Player */
 }
@@ -356,7 +360,27 @@ h1 {
 }
 
 .history-item span sub {
-    font-size: 0.6em; /* Adjust the size of the subscript */
-    vertical-align: sub;
-    color: #555; /* Optional: Change the color of the subscript */
+    /* Removed */
+}
+
+/* Style for individual letter points */
+.history-item .points {
+    font-size: 14px; /* Smaller font size for points */
+}
+
+/* Style for operators (+ and =) */
+.history-item .operator {
+    font-size: 14px; /* Smaller font size for operators */
+    margin: 0 2px; /* Optional: Add slight spacing around operators */
+}
+
+/* Style for the total score */
+.history-item .total-score {
+    font-size: 20px; /* Larger font size for total score */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Prevent the score breakdown from wrapping to the next line */
+.history-item span:last-child {
+    white-space: nowrap; /* Prevent wrapping of the score breakdown */
 }

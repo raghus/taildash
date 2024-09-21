@@ -164,13 +164,23 @@ function addToHistory(word, score, isPlayer) {
     const historyItem = document.createElement('div');
     historyItem.className = 'history-item ' + (isPlayer ? 'player' : 'computer');
     
-    // Format the word with subscripted scores
-    const formattedWord = word.split('').map(letter => `${letter}<sub>${letterPoints[letter]}</sub>`).join('');
+    // Format the word normally without subscripts
+    const formattedWord = word;
+    
+    // Create the score breakdown (e.g., 1+4+1+4=10)
+    const scoreBreakdown = word.split('')
+        .map((letter, index) => {
+            const point = letterPoints[letter];
+            const isLast = index === word.length - 1;
+            const operator = isLast ? '=' : '+';
+            return `<span class="points">${point}</span><span class="operator">${operator}</span>`;
+        })
+        .join('') + `<span class="total-score">${score}</span>`;
     
     historyItem.innerHTML = `
         <span>${isPlayer ? 'You' : 'Computer'}</span>
         <span>${formattedWord}</span>
-        <span>${score}</span>
+        <span>${scoreBreakdown}</span>
     `;
     gameHistoryElement.prepend(historyItem);
 }
