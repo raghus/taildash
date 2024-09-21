@@ -163,9 +163,13 @@ function clearMessage() {
 function addToHistory(word, score, isPlayer) {
     const historyItem = document.createElement('div');
     historyItem.className = 'history-item ' + (isPlayer ? 'player' : 'computer');
+    
+    // Format the word with subscripted scores
+    const formattedWord = word.split('').map(letter => `${letter}<sub>${letterPoints[letter]}</sub>`).join('');
+    
     historyItem.innerHTML = `
         <span>${isPlayer ? 'You' : 'Computer'}</span>
-        <span>${word}</span>
+        <span>${formattedWord}</span>
         <span>${score}</span>
     `;
     gameHistoryElement.prepend(historyItem);

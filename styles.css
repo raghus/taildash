@@ -354,3 +354,9 @@ h1 {
         transform: rotateX(0deg);
     }
 }
+
+.history-item span sub {
+    font-size: 0.6em; /* Adjust the size of the subscript */
+    vertical-align: sub;
+    color: #555; /* Optional: Change the color of the subscript */
+}
