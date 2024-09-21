@@ -27,7 +27,6 @@ let computerScore = 0;
 let playedWords = new Set();
 let gameHistory = [{word: computerWord, score: calculateWordScore(computerWord), player: 'Computer'}];
 
-const computerWordElement = document.getElementById('computer-word');
 const userInputElement = document.getElementById('user-input');
 const submitButton = document.getElementById('submit-btn');
 const messageElement = document.getElementById('message');
@@ -45,6 +44,7 @@ function initializeGame() {
     addToHistory(computerWord, score, false);
     lastPlayedWord = computerWord;
     updateDisplay(); // Ensure this is called to update the display
+    updateScrabbleTiles(computerWord);
 
     // Ensure the score difference element is visible
     scoreDifferenceElement.style.display = 'flex'; // Show the score difference element
@@ -59,7 +59,9 @@ function calculateWordScore(word) {
 }
 
 function updateDisplay() {
-    computerWordElement.textContent = computerWord;
+    // Update Scrabble tiles
+    updateScrabbleTiles(computerWord);
+    
     playerScoreElement.textContent = playerScore; // Update only the score value
     computerScoreElement.textContent = computerScore; // Update only the score value
 
@@ -86,6 +88,48 @@ function updateDisplay() {
 
     // Reset color (if needed)
     scoreDifferenceElement.style.color = ''; // Reset to default color
+}
+
+function updateScrabbleTiles(word) {
+    const tilesContainer = document.getElementById('computer-word-tiles');
+    const currentTiles = tilesContainer.children;
+    const newWord = word.split('');
+
+    // If the number of tiles doesn't match the new word length, recreate all tiles
+    if (currentTiles.length !== newWord.length) {
+        tilesContainer.innerHTML = '';
+        newWord.forEach((letter, index) => {
+            const tile = createTile(letter);
+            tilesContainer.appendChild(tile);
+            setTimeout(() => tile.classList.add('flip'), index * 300); // Increased delay between tiles
+        });
+    } else {
+        // Update existing tiles
+        let delay = 0;
+        for (let i = 0; i < newWord.length; i++) {
+            const tile = currentTiles[i];
+            const newLetter = newWord[i];
+            if (tile.textContent !== newLetter) {
+                setTimeout(() => {
+                    tile.classList.add('flip');
+                    setTimeout(() => {
+                        tile.textContent = newLetter;
+                        tile.setAttribute('data-points', letterPoints[newLetter]);
+                        tile.classList.remove('flip');
+                    }, 1200); // Double the flip animation duration
+                }, delay);
+                delay += 300; // Increment delay for next tile
+            }
+        }
+    }
+}
+
+function createTile(letter) {
+    const tile = document.createElement('div');
+    tile.className = 'scrabble-tile';
+    tile.textContent = letter;
+    tile.setAttribute('data-points', letterPoints[letter]);
+    return tile;
 }
 
 function isValidWord(word) {
@@ -118,21 +162,13 @@ function clearMessage() {
 
 function addToHistory(word, score, isPlayer) {
     const historyItem = document.createElement('div');
-    historyItem.className = 'history-item ' + (isPlayer ? 'player' : 'computer'); // Add class based on player or computer
+    historyItem.className = 'history-item ' + (isPlayer ? 'player' : 'computer');
     historyItem.innerHTML = `
         <span>${isPlayer ? 'You' : 'Computer'}</span>
         <span>${word}</span>
         <span>${score}</span>
     `;
     gameHistoryElement.prepend(historyItem);
-
-    // Highlight the last played word
-    setTimeout(() => {
-        historyItem.style.backgroundColor = 'lightyellow'; // Highlight color
-        setTimeout(() => {
-            historyItem.style.backgroundColor = ''; // Reset to default
-        }, 500); // Reset after 0.5 seconds
-    }, 0); // Execute immediately after adding to history
 }
 
 function computerTurn() {
@@ -156,57 +192,69 @@ function computerTurn() {
         validWords.splice(randomIndex, 1); // Remove the selected word to avoid duplicates
     }
 
-    // Concatenate the selected words and their scores into a single string
-    const wordScoreStrings = selectedWords.map(word => {
-        const score = calculateWordScore(word);
-        return `${word} (${score})`; // Format each word with its score
-    });
-    const concatenatedString = wordScoreStrings.join(', '); // Join the strings with a comma
-
     // Choose the word with the highest score
     const bestWord = selectedWords.reduce((best, current) => {
         return calculateWordScore(current) > calculateWordScore(best) ? current : best;
     });
 
-    // Fade out the current word
-    computerWordElement.classList.add('fade-out');
+    // Update the computer's word
+    computerWord = bestWord;
+    const score = calculateWordScore(computerWord);
+    computerScore += score;
+    playedWords.add(computerWord);
+    lastPlayedWord = computerWord;
 
-    // Wait for the fade-out, then update the word and fade it in
+    // Immediately update the display for scores
+    updateScores();
+
+    // Update the Scrabble tiles with flip effect
+    updateScrabbleTiles(computerWord);
+
+    // Wait for the animation to complete before adding to history and setting focus
+    const animationDuration = 500 * computerWord.length + 100; // Total animation time
     setTimeout(() => {
-        computerWord = bestWord; // Set the computer's word to the best word
-        const score = calculateWordScore(computerWord);
-        computerScore += score;
-        playedWords.add(computerWord);
+        // Add to history after animation completes
         addToHistory(computerWord, score, false);
-        lastPlayedWord = computerWord;
-
-        // Update the word and trigger reflow
-        computerWordElement.textContent = computerWord;
-        computerWordElement.offsetHeight; // Force reflow
-
-        // Fade in the new word
-        computerWordElement.classList.remove('fade-out');
-        computerWordElement.classList.add('fade-in');
-
-        // Update the rest of the display
-        updateDisplay();
-
-        // Highlight the score displays
-        const highlightColor = 'lightyellow'; // Changed from 'GreenYellow' to 'lightyellow'
-        document.getElementById('computer-score-display').style.backgroundColor = highlightColor;
-        document.getElementById('player-score-display').style.backgroundColor = highlightColor;
-
-        // Reset background colors after a delay
-        setTimeout(() => {
-            document.getElementById('computer-score-display').style.backgroundColor = '';
-            document.getElementById('player-score-display').style.backgroundColor = '';
-            computerWordElement.classList.remove('fade-in'); // Remove the fade-in class
-        }, 1500); // Changed from 2000 to 1500
-
+        
+        // Set focus to user input
         userInputElement.focus();
-    }, 500); // Changed from 1000 to 500 to match the new CSS transition duration
+    }, animationDuration);
 
     return true;
+}
+
+function updateScores() {
+    playerScoreElement.textContent = playerScore;
+    computerScoreElement.textContent = computerScore;
+
+    // Calculate the difference and determine if the computer is ahead
+    const scoreDifference = computerScore - playerScore;
+    if (scoreDifference > 0) {
+        scoreDifferenceElement.textContent = `Computer is currently ahead by ${scoreDifference}`;
+    } else if (scoreDifference < 0) {
+        scoreDifferenceElement.textContent = `You are currently ahead by ${Math.abs(scoreDifference)}`;
+    } else {
+        scoreDifferenceElement.textContent = 'Scores are TIED!';
+    }
+
+    // Highlight the score displays
+    const highlightColor = 'lightyellow';
+    document.getElementById('computer-score-display').style.backgroundColor = highlightColor;
+    document.getElementById('player-score-display').style.backgroundColor = highlightColor;
+
+    // Reset background colors after a delay
+    setTimeout(() => {
+        document.getElementById('computer-score-display').style.backgroundColor = '';
+        document.getElementById('player-score-display').style.backgroundColor = '';
+    }, 1500);
+}
+
+function updateDisplay() {
+    // Update Scrabble tiles
+    updateScrabbleTiles(computerWord);
+    
+    // Update scores
+    updateScores();
 }
 
 function handleUserInput() {

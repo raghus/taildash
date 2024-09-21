@@ -31,20 +31,6 @@ h1 {
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
 }
 
-#computer-word {
-    font-size: 60px;
-    font-weight: 900; /* Set font weight to Black (900) for the computer's guess */
-    color: #333; /* Set text color to match the computer's history text color */
-    background-color: #d3d3d3; /* Set background color to match the computer's history background */
-    padding: 2px 8px; /* Reduce top/bottom padding to 2px */
-    border-radius: 4px; /* Slightly rounded corners */
-    text-align: center; /* Center align the text */
-    margin-bottom: 20px;
-    display: inline-block; /* Change to inline-block to fit content width */
-    transition: opacity 0.5s ease-in-out; /* Changed back from 1s to 0.5s */
-    font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
-}
-
 #score-display {
     display: flex;
     justify-content: center;
@@ -136,17 +122,17 @@ h1 {
 .history-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px; /* Changed from 10px to 5px */
-    padding: 5px; /* Add some padding for better spacing */
-    border-radius: 4px; /* Rounded corners */
-    text-align: center; /* Center align text */
-    font-size: 18px; /* Set font size to 18px */
-    font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Yantramanav', sans-serif;
 }
 
 .history-item span {
-    flex: 1; /* Allow spans to take equal space */
-    text-align: center; /* Center align text within each span */
+    flex: 1;
+    text-align: center;
 }
 
 .history-item.player {
@@ -161,10 +147,6 @@ h1 {
 @media (max-width: 600px) {
     h1 {
         font-size: 1.5em; /* Smaller font size for mobile */
-    }
-
-    #computer-word {
-        font-size: 30px; /* Adjust font size for mobile */
     }
 
     #user-input, #submit-btn {
@@ -323,4 +305,52 @@ h1 {
 
 .fade-in {
     opacity: 1;
+}
+
+.scrabble-tiles {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.scrabble-tile {
+    width: 60px;
+    height: 60px;
+    background-color: #d3d3d3; /* Background color */
+    border: 1px solid #333; /* Changed border width to 1px */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 3px;
+    position: relative;
+    transition: transform 1.2s; /* Animation duration */
+    transform-style: preserve-3d;
+}
+
+.scrabble-tile::after {
+    content: attr(data-points);
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.scrabble-tile.flip {
+    animation: flip 1.2s ease-in-out; /* Animation duration */
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+     100% {
+        transform: rotateX(0deg);
+    }
 }
