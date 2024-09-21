@@ -338,9 +338,9 @@ h1 {
     content: attr(data-points);
     position: absolute;
     bottom: 3px;
-    right: 3px;
+    right: 5px;
     font-size: 20px;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .scrabble-tile.flip {
