@@ -1,6 +1,6 @@
 body {
     font-family: 'Yantramanav', sans-serif; /* Changed to Yantramanav font */
-    background-color: #f4f18c; /* Set the background color to #3498db */
+    background-color: #3498db; /* Set the background color to #3498db */
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -395,12 +395,12 @@ h1 {
     width: 45px; /* Set width to 45px */
     height: 45px; /* Set height to 45px */
     background-color: #f4f18c; /* Changed from #3498db to #F5F5DC */
-    color: black; /* Changed from white to black */
+    color: rgb(0, 0, 0); /* Changed from white to black */
     display: flex; /* Ensure content is centered */
     justify-content: center;
     align-items: center;
     font-size: 24px; /* Adjust font size for smaller tiles */
-    border: none; /* Removed border */
+    border: 1px solid #c4b703; 
     border-radius: 5px; /* Match border radius */
     position: relative; /* Maintain positioning for pseudo-elements */
     transition: transform 1.2s; /* Consistent animation duration */

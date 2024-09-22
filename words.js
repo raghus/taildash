@@ -748,6 +748,7 @@ const words = [
   'GASP',
   'GATE',
   'GAVE',
+  'GAWK',
   'GAYS',
   'GAZE',
   'GEAR',
