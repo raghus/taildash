@@ -7,7 +7,7 @@ const letterPoints = {
     'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10
 };
 
-const profane = ['FUCK', 'CUNT', 'DICK', 'SHIT', 'CLIT', 'JIZZ']; // Added 'JIZZ' to profane words
+const skipWords = ['FUCK', 'CUNT', 'DICK', 'SHIT', 'CLIT', 'JIZZ', 'JEWS']; // Added 'JEWS' to skipWords
 
 let computerWord = '';
 let isHistoryVisible = true;
@@ -189,7 +189,7 @@ function computerTurn() {
     let validWords = words.filter(word => 
         !playedWords.has(word) && 
         differsByOneLetter(word, lastPlayedWord) &&
-        !profane.includes(word) // Exclude profane words
+        !skipWords.includes(word) // Changed from 'profane' to 'skipWords' to exclude skip words
     );
 
     if (validWords.length === 0) {
