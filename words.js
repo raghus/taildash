@@ -768,7 +768,7 @@ const words = [
   'GHAT',
   'GHEE',
   'GIFT',
-  'GILA',
+  'GILD',
   'GILL',
   'GILT',
   'GINN',
