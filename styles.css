@@ -1,6 +1,6 @@
 body {
     font-family: 'Yantramanav', sans-serif; /* Changed to Yantramanav font */
-    background-color: #3498db; /* Set the background color to #3498db */
+    background-color: #f4f18c; /* Set the background color to #3498db */
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -394,8 +394,8 @@ h1 {
 .scrabble-tile-small {
     width: 45px; /* Set width to 45px */
     height: 45px; /* Set height to 45px */
-    background-color: #3498db; /* Set background color */
-    color: white; /* Set font color */
+    background-color: #f4f18c; /* Changed from #3498db to #F5F5DC */
+    color: black; /* Changed from white to black */
     display: flex; /* Ensure content is centered */
     justify-content: center;
     align-items: center;
@@ -405,7 +405,7 @@ h1 {
     position: relative; /* Maintain positioning for pseudo-elements */
     transition: transform 1.2s; /* Consistent animation duration */
     transform-style: preserve-3d; /* Maintain 3D transforms */
-    margin-right: 0; /* Added margin-right for spacing between tiles */
+    margin-right: 1px; /* Added margin-right for spacing between tiles */
 }
 
 /* Optional: Remove the right margin from the last tile to prevent extra space */
@@ -421,5 +421,5 @@ h1 {
     right: 5px;
     font-size: 14px; /* Adjusted font size for smaller tiles */
     font-weight: bold;
-    color: white; /* Ensure the score is visible on the blue background */
+    color: black; /* Changed from white to black */
 }
