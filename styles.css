@@ -384,3 +384,42 @@ h1 {
 .history-item span:last-child {
     white-space: nowrap; /* Prevent wrapping of the score breakdown */
 }
+
+#taildash-tiles {
+    display: flex;
+    justify-content: center; /* Centers the tiles horizontally */
+    margin-bottom: 20px; /* Added margin-bottom to create space below the TAILDASH tiles */
+}
+
+.scrabble-tile-small {
+    width: 45px; /* Set width to 45px */
+    height: 45px; /* Set height to 45px */
+    background-color: #3498db; /* Set background color */
+    color: white; /* Set font color */
+    display: flex; /* Ensure content is centered */
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Adjust font size for smaller tiles */
+    border: none; /* Removed border */
+    border-radius: 5px; /* Match border radius */
+    position: relative; /* Maintain positioning for pseudo-elements */
+    transition: transform 1.2s; /* Consistent animation duration */
+    transform-style: preserve-3d; /* Maintain 3D transforms */
+    margin-right: 0; /* Added margin-right for spacing between tiles */
+}
+
+/* Optional: Remove the right margin from the last tile to prevent extra space */
+#taildash-tiles .scrabble-tile-small:last-child {
+    margin-right: 0;
+}
+
+/* Add letter scores to small scrabble tiles */
+.scrabble-tile-small::after {
+    content: attr(data-points); /* Display the point value */
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+    font-size: 14px; /* Adjusted font size for smaller tiles */
+    font-weight: bold;
+    color: white; /* Ensure the score is visible on the blue background */
+}
