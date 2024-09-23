@@ -219,6 +219,7 @@ const words = [
   'BOOT',
   'BORA',
   'BORE',
+  'BORK',
   'BORN',
   'BOSS',
   'BOTH',
