@@ -42,7 +42,12 @@
             <div id="score-difference">
                 <span>0</span> <!-- This will be updated dynamically in the script -->
             </div>
-            <input type="text" id="user-input" placeholder="Enter a word with just one letter changed" maxlength="4"> <!-- Updated placeholder -->
+            <input type="text" id="user-input" maxlength="4"> <!-- Removed placeholder -->
+
+            <div id="instruction">
+                Enter a word with just one letter changed
+            </div> <!-- New instruction div -->
+
             <button id="submit-btn">Submit</button>
             <a href="#" id="give-up-link">Give up?</a> <!-- Ensure this is visible -->
             <div id="message"></div>

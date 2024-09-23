@@ -60,19 +60,25 @@ h1 {
 }
 
 #user-input {
-    width: 95%;  /* Increase width for better visibility */
-    max-width: 450px;  /* Set a maximum width to accommodate the placeholder */
+    width: 60px;  /* Set a fixed width suitable for 4 characters */
+    max-width: 60px;  /* Ensure the maximum width matches the fixed width */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #3498db; /* Change border to 1px */
     border-radius: 4px;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     margin-top: 5px; /* Add margin-top of 10px */
     text-transform: uppercase;
     display: block;  /* Change to block to allow margin auto */
     margin-left: auto;  /* Center horizontally */
     margin-right: auto;  /* Center horizontally */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
+}
+
+#instruction {
+    font-size: 15px; /* Changed from smaller to 12px */
+    font-weight: bold;
+    color: #3498db;
 }
 
 #submit-btn {
@@ -89,6 +95,7 @@ h1 {
     transition: background-color 0.3s ease;
     margin-left: auto;  /* Center horizontally */
     margin-right: auto;  /* Center horizontally */
+    margin-top: 5px; /* Add margin-top of 10px */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
 }
 

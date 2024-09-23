@@ -1757,6 +1757,7 @@ const words = [
   'ROUX',
   'ROVE',
   'ROWS',
+  'RUBE',
   'RUBS',
   'RUBY',
   'RUDD',
