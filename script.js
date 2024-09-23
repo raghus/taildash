@@ -7,7 +7,7 @@ const letterPoints = {
     'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10
 };
 
-const skipWords = ['FUCK', 'CUNT', 'DICK', 'SHIT', 'CLIT', 'JIZZ', 'JEWS']; // Added 'JEWS' to skipWords
+const skipWords = ['FUCK', 'CUNT', 'DICK', 'SHIT', 'CLIT', 'JIZZ', 'JEWS', 'RAPE', 'ANUS', 'ANAL']; // Added 'RAPE', 'ANUS', and 'ANAL' to skipWords
 
 let computerWord = '';
 let isHistoryVisible = true;
@@ -383,6 +383,13 @@ userInputElement.addEventListener('input', function() {
     if (this.value.length === 4) {
         const score = calculateWordScore(this.value);
         console.log(`Score for ${this.value}: ${score}`);
+        if (score + 10 <= (computerScore - playerScore)) { // Changed condition to score + 10 <= current difference
+            console.log("Not enough!"); // Logs "Not enough!" if the condition is met
+            submitButton.style.backgroundColor = 'red'; // Change submit button to red background
+            setTimeout(() => {
+                submitButton.style.backgroundColor = '#3498db'; // Revert to original color after 1 second
+            }, 1000); // Duration in milliseconds
+        }
     }
 });
 
