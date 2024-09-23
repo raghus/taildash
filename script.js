@@ -68,7 +68,7 @@ function updateDisplay() {
     // Calculate the difference and determine if the computer is ahead
     const scoreDifference = computerScore - playerScore; // Calculate score difference
     if (scoreDifference > 0) {
-        scoreDifferenceElement.textContent = `Computer is currently ahead by ${scoreDifference}`; // Display the ahead message
+        scoreDifferenceElement.textContent = `The computer is currently ahead by ${scoreDifference}`; // Display the ahead message
     } else if (scoreDifference < 0) {
         scoreDifferenceElement.textContent = `You are currently ahead by ${Math.abs(scoreDifference)}`; // Message for when the player is ahead
     } else {
@@ -244,7 +244,7 @@ function updateScores() {
     // Calculate the difference and determine if the computer is ahead
     const scoreDifference = computerScore - playerScore;
     if (scoreDifference > 0) {
-        scoreDifferenceElement.textContent = `Computer is currently ahead by ${scoreDifference}`;
+        scoreDifferenceElement.textContent = `The computer is currently ahead by ${scoreDifference}`;
     } else if (scoreDifference < 0) {
         scoreDifferenceElement.textContent = `You are currently ahead by ${Math.abs(scoreDifference)}`;
     } else {
