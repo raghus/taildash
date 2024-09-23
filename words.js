@@ -314,7 +314,6 @@ const words = [
   'CHAO',
   'CHAP',
   'CHAR',
-  'CHAS',
   'CHAT',
   'CHEF',
   'CHEW',
