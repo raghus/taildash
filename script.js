@@ -48,6 +48,7 @@ function initializeGame() {
 
     // Ensure the score difference element is visible
     scoreDifferenceElement.style.display = 'flex'; // Show the score difference element
+    userInputElement.focus(); // Move focus to the user input field
 }
 
 function getRandomWord() {
@@ -408,6 +409,7 @@ function showModal() {
 function closeModal() {
     const modal = document.getElementById('rules-modal');
     modal.style.display = 'none';
+    userInputElement.focus(); // Move focus to the user input field after closing the modal
 }
 
 // Event listeners for modal
