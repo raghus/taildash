@@ -48,7 +48,7 @@ function initializeGame() {
 
     // Ensure the score difference element is visible
     scoreDifferenceElement.style.display = 'flex'; // Show the score difference element
-    userInputElement.focus(); // Move focus to the user input field
+    //userInputElement.focus(); // Move focus to the user input field
 }
 
 function getRandomWord() {
