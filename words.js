@@ -1301,6 +1301,8 @@ const words = [
   'MICK',
   'MIDI',
   'MIEN',
+  'MIFF',
+  'MIGS',
   'MIKE',
   'MILD',
   'MILE',
