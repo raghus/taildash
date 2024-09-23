@@ -379,16 +379,21 @@ userInputElement.addEventListener('input', function() {
     this.value = this.value.toUpperCase();
     clearMessage(); // Clear error message when user starts typing
 
-    // Check if the user has entered four letters
-    if (this.value.length === 4) {
+    if (this.value.length === 4 && isValidWord(this.value)) { 
         const score = calculateWordScore(this.value);
-        console.log(`Score for ${this.value}: ${score}`);
-        if (score + 10 <= (computerScore - playerScore)) { // Changed condition to score + 10 <= current difference
-            console.log("Not enough!"); // Logs "Not enough!" if the condition is met
-            submitButton.style.backgroundColor = 'red'; // Change submit button to red background
+        //console.log(`Score for ${this.value}: ${score}`);
+        if (score + 10 <= (computerScore - playerScore)) { 
+            submitButton.style.backgroundColor = 'red';
             setTimeout(() => {
-                submitButton.style.backgroundColor = '#3498db'; // Revert to original color after 1 second
-            }, 1000); // Duration in milliseconds
+                submitButton.style.backgroundColor = '#3498db';
+            }, 1000);
+        }
+
+        if (playerScore + score >= computerScore + 5) { 
+            submitButton.style.backgroundColor = 'green';
+            setTimeout(() => {
+                submitButton.style.backgroundColor = '#3498db';
+            }, 1000);
         }
     }
 });
