@@ -13,6 +13,9 @@ let computerWord = '';
 let isHistoryVisible = true;
 let lastPlayedWord = '';
 
+// Initialize word count
+let wordCount = 0;
+
 function differsByOneLetter(word1, word2) {
     if (word1.length !== word2.length) return false;
     let differences = 0;
@@ -163,6 +166,7 @@ function clearMessage() {
 }
 
 function addToHistory(word, score, isPlayer) {
+    wordCount++; // Increment the word count
     const historyItem = document.createElement('div');
     historyItem.className = 'history-item ' + (isPlayer ? 'player' : 'computer');
     
@@ -179,10 +183,12 @@ function addToHistory(word, score, isPlayer) {
         })
         .join('') + `<span class="total-score">${score}</span>`;
     
+    // Update history item to include the word count as a separate column
     historyItem.innerHTML = `
-        <span>${isPlayer ? 'You' : 'Computer'}</span>
-        <span>${formattedWord}</span>
-        <span>${scoreBreakdown}</span>
+        <span class="history-number">${wordCount}.</span>
+        <span class="history-player">${isPlayer ? 'You' : 'Computer'}</span>
+        <span class="history-word">${formattedWord}</span>
+        <span class="history-score">${scoreBreakdown}</span>
     `;
     gameHistoryElement.prepend(historyItem);
 }
@@ -434,6 +440,9 @@ document.getElementById('play-again-button').addEventListener('click', function(
     playedWords.clear(); // Clear the set of played words
     lastPlayedWord = '';
     computerWord = '';
+    
+    // Reset the word count
+    wordCount = 0;
     
     // Clear the message and history
     clearMessage();
