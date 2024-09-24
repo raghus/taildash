@@ -361,6 +361,7 @@ function handleGiveUp() {
     
     disableGameControls(); // Disable input and button after giving up
     document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
+    document.getElementById('instruction').style.display = 'none'; // **Hide the instruction div**
 }
 
 // Event listener for the "Give up?" link
