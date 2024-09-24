@@ -7,7 +7,7 @@ const letterPoints = {
     'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10
 };
 
-const skipWords = ['FUCK', 'CUNT', 'DICK', 'SHIT', 'CLIT', 'JIZZ', 'JEWS', 'RAPE', 'ANUS', 'ANAL', 'PIMP','SLUT', 'FAGS', 'PUBE']; 
+const skipWords = ['ANAL', 'ANUS', 'CLIT', 'CUNT', 'DICK', 'FAGS', 'FUCK', 'JIZZ', 'JEWS', 'PIMP', 'PUBE', 'RAPE', 'SLUT', 'SHIT']; 
 
 let computerWord = '';
 let isHistoryVisible = true;
