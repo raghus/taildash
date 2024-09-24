@@ -315,6 +315,7 @@ function handleUserInput() {
         showMessage('Game over! ' + (playerScore > computerScore ? 'You win!' : 'Computer wins!'), 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
+        document.getElementById('instruction').style.display = 'none'; // Hide the Give up link
         return; // Exit the function to prevent further actions
     }
     
