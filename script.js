@@ -37,6 +37,7 @@ const scoreDifferenceElement = document.getElementById('score-difference');
 
 function initializeGame() {
     clearMessage(); // Clear any previous messages
+    document.getElementById('instruction').style.display = 'block'; // **Show the instruction div**
     computerWord = getRandomWord();
     const score = calculateWordScore(computerWord);
     computerScore += score;
