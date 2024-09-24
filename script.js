@@ -296,6 +296,7 @@ function handleUserInput() {
         showMessage(`Game over! You win as you are ahead by ${scoreDifference} points!`, 'success');
         disableGameControls(); // Disable input and button
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
+        document.getElementById('instruction').style.display = 'none'; // Hide the Give up link
         return; // Exit the function to prevent further actions
     }
     
@@ -305,6 +306,7 @@ function handleUserInput() {
         showMessage(`Game over! Computer wins as it is ahead by ${scoreDifference} points!`, 'error'); // Changed 'success' to 'error'
         disableGameControls();
         document.getElementById('give-up-link').style.display = 'none';
+        document.getElementById('instruction').style.display = 'none'; // Hide the Give up link
         return;
     }
     
