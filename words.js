@@ -1352,6 +1352,8 @@ const words = [
   'MOON',
   'MOOR',
   'MOOT',
+  'MOPE',
+  'MOPS',
   'MORA',
   'MORE',
   'MORN',
