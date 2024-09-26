@@ -186,7 +186,7 @@ function addToHistory(word, score, isPlayer) {
     // Update history item to include the word count as a separate column
     historyItem.innerHTML = `
         <span class="history-number">${wordCount}.</span>
-        <span style="text-align:left" class="history-player">${isPlayer ? 'You' : 'Computer'}</span>
+        <span class="history-player">${isPlayer ? 'You' : 'Computer'}</span>
         <span class="history-word">${formattedWord}</span>
         <span class="history-score">${scoreBreakdown}</span>
     `;
