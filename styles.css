@@ -5,6 +5,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    font-weight: 400;
 }
 
 .container {
@@ -337,7 +338,7 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 900;
     margin: 0 3px;
     position: relative;
     transition: transform 1.2s; /* Animation duration */
