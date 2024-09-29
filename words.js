@@ -52,7 +52,6 @@ const words = [
   'AMMO',
   'AMPS',
   'ANAL',
-  'ANCE',
   'ANEW',
   'ANNA',
   'ANNO',
