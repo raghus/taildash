@@ -794,6 +794,7 @@ const words = [
   'GLIB',
   'GLOW',
   'GLUE',
+  'GLUG',
   'GLUM',
   'GLUT',
   'GOAD',

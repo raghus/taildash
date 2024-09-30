@@ -156,7 +156,7 @@ h1 {
 }
 
 .history-item.computer {
-    background-color: #f8dc3e; /* Pale gray for Computer */
+    background-color: #f7eaa3; /* Pale gray for Computer */
 }
 
 /* Media Queries for Mobile Responsiveness */
@@ -277,7 +277,7 @@ h1 {
 }
 
 #computer-score-display {
-    background-color: #f8dc3e; /* Same color as the computer guesses in history */
+    background-color: #f7eaa3; /* Same color as the computer guesses in history */
     padding: 4px 8px; /* Padding of 2x (adjust as needed) */
     border-radius: 4px; /* Slightly rounded corners */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
@@ -331,7 +331,7 @@ h1 {
 .scrabble-tile {
     width: 75px; /* Changed from 60px */
     height: 75px; /* Changed from 60px */
-    background-color: #f8dc3e; /* Background color */
+    background-color: #f7eaa3; /* Background color */
     border: 2px solid #333; /* Changed border width to 1px */
     border-radius: 5px;
     display: flex;
