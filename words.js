@@ -1668,6 +1668,7 @@ const words = [
   'PURE',
   'PURI',
   'PUSH',
+  'PUSS',
   'PUTS',
   'PUTT',
   'PYRE',
