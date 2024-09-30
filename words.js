@@ -929,6 +929,7 @@ const words = [
   'HOMO',
   'HONE',
   'HONG',
+  'HONK',
   'HONS',
   'HOOD',
   'HOOF',
