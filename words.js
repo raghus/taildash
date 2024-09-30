@@ -268,6 +268,7 @@ const words = [
   'BUST',
   'BUSY',
   'BUTE',
+  'BUTS',
   'BUTT',
   'BUYS',
   'BUZZ',
