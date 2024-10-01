@@ -1062,6 +1062,7 @@ const words = [
   'KEEL',
   'KEEN',
   'KEEP',
+  'KEGS',
   'KELP',
   'KEMP',
   'KENT',
