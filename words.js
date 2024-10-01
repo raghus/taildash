@@ -2337,6 +2337,7 @@ const words = [
   'WONK',
   'WONT',
   'WOOD',
+  'WOOF',
   'WOOL',
   'WORD',
   'WORE',
