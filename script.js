@@ -197,12 +197,13 @@ function computerTurn() {
     let validWords = words.filter(word => 
         !playedWords.has(word) && 
         differsByOneLetter(word, lastPlayedWord) &&
-        !skipWords.includes(word) // Changed from 'profane' to 'skipWords' to exclude skip words
+        !skipWords.includes(word)
     );
 
     if (validWords.length === 0) {
-        showMessage('Computer cannot find a valid word. You win!', 'success');
+        showMessage('The computer cannot find a valid word. You win!', 'success');
         document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
+        document.getElementById('instruction').style.display = 'none'; // Hide the instruction element
         return false;
     }
 
@@ -309,7 +310,7 @@ function handleUserInput() {
     // Check if the computer's score exceeds the player's score by 10 or more points
     if (computerScore - playerScore >= 10) {
         const scoreDifference = computerScore - playerScore;
-        showMessage(`Game over! Computer wins as it is ahead by ${scoreDifference} points!`, 'error'); // Changed 'success' to 'error'
+        showMessage(`Game over! The computer wins as it is ahead by ${scoreDifference} points!`, 'error'); // Changed 'success' to 'error'
         disableGameControls();
         document.getElementById('give-up-link').style.display = 'none';
         document.getElementById('instruction').style.display = 'none'; // Hide the Give up link
