@@ -1303,6 +1303,7 @@ const words = [
   'MEET',
   'MEGA',
   'MEIN',
+  'MELD',
   'MELT',
   'MEME',
   'MEMO',
