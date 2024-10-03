@@ -42,6 +42,7 @@ function initializeGame() {
     clearMessage(); // Clear any previous messages
     document.getElementById('instruction').style.display = 'block'; // **Show the instruction div**
     computerWord = getRandomWord();
+    //computerWord = 'HOME';
     const score = calculateWordScore(computerWord);
     computerScore += score;
     playedWords.add(computerWord);
@@ -202,8 +203,8 @@ function computerTurn() {
 
     if (validWords.length === 0) {
         showMessage('The computer cannot find a valid word. You win!', 'success');
-        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         document.getElementById('instruction').style.display = 'none'; // Hide the instruction element
+        document.getElementById('give-up-link').style.display = 'none'; // Hide the Give up link
         return false;
     }
 
