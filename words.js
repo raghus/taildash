@@ -798,6 +798,7 @@ const words = [
   'GLUG',
   'GLUM',
   'GLUT',
+  'GNUS',
   'GOAD',
   'GOAL',
   'GOAT',

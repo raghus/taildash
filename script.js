@@ -7,7 +7,7 @@ const letterPoints = {
     'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10
 };
 
-const skipWords = ['ANAL', 'ANUS', 'BOOB','CLIT', 'CUNT', 'DICK', 'FAGS', 'FUCK', 'HOES', 'JIZZ', 'JEWS', 'PIMP', 'PUBE', 'RAPE', 'SLUT', 'SHIT']; 
+const skipWords = ['ANAL', 'ANUS', 'BOOB', 'COCK',' CLIT', 'CUNT', 'DICK', 'FAGS', 'FUCK', 'HOES', 'JIZZ', 'JEWS', 'PIMP', 'PUBE', 'RAPE', 'SLUT', 'SHIT']; 
 
 let computerWord = '';
 let isHistoryVisible = true;
@@ -42,7 +42,7 @@ function initializeGame() {
     clearMessage(); // Clear any previous messages
     document.getElementById('instruction').style.display = 'block'; // **Show the instruction div**
     computerWord = getRandomWord();
-    //computerWord = 'HOME';
+    //computerWord = 'HOME'; // 'NEVI' 'POEM'
     const score = calculateWordScore(computerWord);
     computerScore += score;
     playedWords.add(computerWord);
