@@ -1,6 +1,6 @@
 body {
     font-family: 'Yantramanav', sans-serif; /* Changed to Yantramanav font */
-    background-color: #B0C4DE; /* Set the background color to #3498db */
+    background-color: #D3D3D3; /* Changed background color to pale gray */
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -152,11 +152,11 @@ h1 {
 }
 
 .history-item.player {
-    background-color: #B0C4DE; /* Pale blue for Player */
+    background-color: #9AC1F3; /* Pale blue for Player */
 }
 
 .history-item.computer {
-    background-color: #f7eaa3; /* Pale gray for Computer */
+    background-color: #d3d3d3; /* Pale gray for Computer */
 }
 
 /* Media Queries for Mobile Responsiveness */
@@ -277,14 +277,14 @@ h1 {
 }
 
 #computer-score-display {
-    background-color: #f7eaa3; /* Same color as the computer guesses in history */
+    background-color: #d3d3d3; /* Same color as the computer guesses in history */
     padding: 4px 8px; /* Padding of 2x (adjust as needed) */
     border-radius: 4px; /* Slightly rounded corners */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
 }
 
 #player-score-display {
-    background-color: #B0C4DE; /* Same color as the player guesses in history */
+    background-color: #9AC1F3; /* Same color as the player guesses in history */
     padding: 4px 8px; /* Similar padding to the computer score display */
     border-radius: 4px; /* Slightly rounded corners */
     font-family: 'Yantramanav', sans-serif; /* Ensure the same font is used */
@@ -331,9 +331,10 @@ h1 {
 .scrabble-tile {
     width: 75px; /* Changed from 60px */
     height: 75px; /* Changed from 60px */
-    background-color: #f7eaa3; /* Background color */
-    border: 2px solid #333; /* Changed border width to 1px */
-    border-radius: 5px;
+    background-color: #333333; /* Changed background color to black */
+    color: white; /* Changed text color to white */
+    border: 0px solid #3498db; /* Changed border to 2px white */
+    border-radius: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -405,13 +406,13 @@ h1 {
 .scrabble-tile-small {
     width: 45px; /* Set width to 45px */
     height: 45px; /* Set height to 45px */
-    background-color: #3498db; /* Changed from #3498db to #F5F5DC */
+    background-color: #333333; /* Changed from #3498db to #F5F5DC */
     color: #ffffff; /* Changed from white to black */
     display: flex; /* Ensure content is centered */
     justify-content: center;
     align-items: center;
     font-size: 24px; /* Adjust font size for smaller tiles */
-    border: 1px solid #333; 
+    border: 0px solid #333; 
     border-radius: 5px; /* Match border radius */
     position: relative; /* Maintain positioning for pseudo-elements */
     transition: transform 1.2s; /* Consistent animation duration */
