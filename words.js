@@ -1290,7 +1290,6 @@ const words = [
   'MATH',
   'MATS',
   'MAUD',
-  'MAWR',
   'MAYA',
   'MAYO',
   'MAYS',
