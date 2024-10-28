@@ -332,6 +332,7 @@ const words = [
   'CHOP',
   'CHOU',
   'CHOW',
+  'CHUG',
   'CHUM',
   'CINE',
   'CITE',
