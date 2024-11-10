@@ -727,6 +727,7 @@ const words = [
   'FOUL',
   'FOUR',
   'FOWL',
+  'FOXY',
   'FRAT',
   'FRAU',
   'FRAY',
