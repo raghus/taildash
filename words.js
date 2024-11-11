@@ -1559,6 +1559,7 @@ const words = [
   'PEGS',
   'PELL',
   'PELT',
+  'PEND',
   'PENS',
   'PENT',
   'PERE',
