@@ -46,7 +46,7 @@ For example: TAIL → TALL → TALK → TASK → CASK → CASH → DASH
 
 ## License
 
-MIT License
+All rights reserved. This code is proprietary and not open for redistribution or modification without explicit permission.
 
 ## Live Demo
 
