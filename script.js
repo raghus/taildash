@@ -64,37 +64,8 @@ function calculateWordScore(word) {
     return word.split('').reduce((score, letter) => score + letterPoints[letter], 0);
 }
 
-function updateDisplay() {
-    // Update Scrabble tiles
-    updateScrabbleTiles(computerWord);
-    
-    playerScoreElement.textContent = playerScore; // Update only the score value
-    computerScoreElement.textContent = computerScore; // Update only the score value
-
-    // Calculate the difference and determine if the computer is ahead
-    const scoreDifference = computerScore - playerScore; // Calculate score difference
-    if (scoreDifference > 0) {
-        scoreDifferenceElement.textContent = `The computer is currently ahead by ${scoreDifference}`; // Display the ahead message
-    } else if (scoreDifference < 0) {
-        scoreDifferenceElement.textContent = `You are currently ahead by ${Math.abs(scoreDifference)}`; // Message for when the player is ahead
-    } else {
-        scoreDifferenceElement.textContent = 'Scores are TIED!'; // Message for when the scores are tied
-    }
-
-    // Highlight the score displays with light yellow briefly
-    const highlightColor = 'lightyellow'; // Changed from 'palegoldenrod' to 'lightyellow'
-    document.getElementById('computer-score-display').style.backgroundColor = highlightColor; // Change to light yellow
-    document.getElementById('player-score-display').style.backgroundColor = highlightColor; // Change to light yellow
-
-    // Reset background colors after a short delay
-    setTimeout(() => {
-        document.getElementById('computer-score-display').style.backgroundColor = ''; // Reset to default
-        document.getElementById('player-score-display').style.backgroundColor = ''; // Reset to default
-    }, 500); // Reset after 0.5 seconds
-
-    // Reset color (if needed)
-    scoreDifferenceElement.style.color = ''; // Reset to default color
-}
+// Create a Set for O(1) word lookup instead of O(n) array search
+const wordSet = new Set(words);
 
 function updateScrabbleTiles(word) {
     const tilesContainer = document.getElementById('computer-word-tiles');
@@ -139,7 +110,7 @@ function createTile(letter) {
 }
 
 function isValidWord(word) {
-    if (!words.includes(word)) {
+    if (!wordSet.has(word)) {
         showMessage("That word doesn't exist in our dictionary.", 'error');
         return false;
     }
